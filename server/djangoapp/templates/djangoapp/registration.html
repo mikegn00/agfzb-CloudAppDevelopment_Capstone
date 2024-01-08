@@ -34,7 +34,7 @@
         </nav>
 
         <!--Add a registration form here -->
-        <form action="/action_page.php">
+        <form action="{% url 'djangoapp:registration' %}" method="post">
             <div class="container">
                 <h1>Sign Up</h1>
                 <p>Please fill in information below to create an account</p>
@@ -50,8 +50,8 @@
 
                 <label for="password">Password</label>
                 <input type="password" placeholder="Password" name="password" id="password" required>
-
-                <button class="" type="submit">Sign Up</button>
+                {% csrf_token %}
+                <button class="button" type="submit">Sign Up</button>
             </div>
         </form>
     </body>

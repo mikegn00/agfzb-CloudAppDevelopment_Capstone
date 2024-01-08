@@ -17,11 +17,10 @@
     <!--Add a nav bar here -->
     <nav class="navbar navbar-light bg-light">
         <div class="navbar-header">
-            <div class="navbar-brand"><a href="#">Best Car Dealership</a></div>
+            <div class="navbar-brand"><a href="#">Dealership Review</a></div>
         </div>
         <ul class="navbar-nav">
             <li class="nav-item"><a href="{% url 'djangoapp:about' %}">About Us</a></li>
-            <li class="nav-item"><a href="{% url 'djangoapp:contact' %}">Contact Us</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
