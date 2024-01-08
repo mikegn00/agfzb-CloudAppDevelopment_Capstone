@@ -9,7 +9,32 @@
 
     <body>
 
-    <!--Add a nav bar here -->
+        <!--Add a nav bar here -->
+        <nav class="navbar navbar-light bg-light">
+            <div class="navbar-header">
+                <div class="navbar-brand"><a href="#">Best Cars</a></div>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li>
+                    <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
+                    <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
+                </li>
+                {% else %}
+                <li>
+                    <form class="form-inline" action="{% url 'djangoapp:login' %}" method="post">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="Username" name="username">
+                            <input class="form-control" type="password" placeholder="Password" name="password">
+                            <button class="btn btn-primary" type="submit">Login</button>
+                            <a class="btn btn-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                        </div>
+                    </form>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
 
     <!-- Add reviews as cards -->
 
