@@ -12,11 +12,12 @@
         <!--Add a nav bar here -->
         <nav class="navbar navbar-light bg-light">
             <div class="navbar-header">
-                <div class="navbar-brand"><a href="#">Best Cars</a></div>
+                <div class="navbar-brand"><a href="#">Dealership Review</a></div>
             </div>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}
                 <li>
+                    <a class="btn btn-link" href="{% url 'djangoapp:add_review' dealer.id %}">Add Review</a>
                     <a class="btn btn-link" href="#">{{ user.first_name }}({{ user.username }})</a>
                     <a class="btn btn-link" href="{% url 'djangoapp:logout' %}">Logout</a>
                 </li>
@@ -37,7 +38,89 @@
         </nav>
 
     <!-- Add reviews as cards -->
-
+    <main class="container">
+        <h2>Review for {{dealer.full_name}}</h2>
+        <div class="card-columns">
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/neutral.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/positive.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/negative.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/negative.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/positive.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+            <div class="card" >
+                <div class="card-header">
+                    <img class="card-img-left" src="{{MEDIA_URL}}/emoji/positive.png" width="40" height="40">
+                </div>
+            
+                <div class="card-body text-muted">
+                    <h5 class="card-title">Subhan</h5>
+                    <p class="card-text">Arshad</p>
+                    2021 
+                    <br>
+                    Reviewer had once made a purchase.
+                </div>
+            </div>
+        </div>
+    </main>
     </body>
 
 </html>
