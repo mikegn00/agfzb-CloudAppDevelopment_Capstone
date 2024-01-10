@@ -39,5 +39,46 @@
         </nav>
 
         <!--Add review form here -->
+        <div class="container">
+            <h2>Add a review about <b>{{dealer.full_name}}</b></h2>
+            <form action="{% url 'djangoapp:add_review' dealer.id %}" method="post">
+                {% csrf_token%}
+                <div class="form-group">
+                    
+                    <div class="mb-3">
+                        <label for="content">Enter the review content:</label>
+                        <textarea class="form-control" name="content" id="content" cols="30" rows="10" required></textarea>
+                    </div>
+                    
+                    <div class="mb-3 ml-1">
+                        <input class="form-check-input" type="checkbox" name="purchasecheck" id="purchasecheck">
+                        <label class="form-check-label" for="purchasecheck">Has purchased the car from {{dealer.full_name}} ? <p class="text-muted">(select purchased car information below if checked)</p></label>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="car">Select your car (model-make-year):</label>
+                        <select class="form-select" name="car" id="car" required>
+                            {% for car in cars %}
+                            <option value="{{car.id}}">{{car.name}}-{{car.carmake}}-{{car.year}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="purchasedate">Select your purchase date:</label>
+                        <input class="date-pick" type="text" name="purchasedate" id="purchasedate">
+                    </div>
+
+                </div>
+                <div>
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </form>    
+        </div>
     </body>
+    <script type="text/javascript">
+        $('.date-pick').datepicker({
+            format: 'dd/mm/yyyy'
+        });
+    </script>
 </html>
